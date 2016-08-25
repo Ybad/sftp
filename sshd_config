@@ -6,12 +6,20 @@ HostKey /etc/ssh/ssh_host_rsa_key
 
 # Faster connection
 # See: https://github.com/atmoz/sftp/issues/11
-UseDNS no
+UseDNS yes
+
+#use dns yes to be able to use from= within authorized_key ssh
 
 # Limited access
 PermitRootLogin no
 X11Forwarding no
 AllowTcpForwarding no
+
+# kex for old ssh client very insecure 
+
+KexAlgorithms  diffie-hellman-group1-sha1,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1
+
+
 
 # Force sftp and chroot jail
 Subsystem sftp internal-sftp
