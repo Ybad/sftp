@@ -1,4 +1,4 @@
-FROM debian:wheezy
+FROM debian:jessy
 MAINTAINER Adrian Dvergsdal [atmoz.net]
 
 # - Install packages
